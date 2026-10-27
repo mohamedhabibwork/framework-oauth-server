@@ -38,13 +38,7 @@ export type {
   OAuthConsentRow,
   OAuthRefreshTokenRow,
 } from './schema/tables';
-export {
-  oauthAccessTokens,
-  oauthAuthCodes,
-  oauthClients,
-  oauthConsents,
-  oauthRefreshTokens,
-} from './schema/tables';
+export { oauthAccessTokens, oauthAuthCodes, oauthClients, oauthConsents, oauthRefreshTokens } from './schema/tables';
 export { expandScopes, InMemoryScopeRegistry } from './scopes';
 export {
   authorizationCodeRedirect,
@@ -54,11 +48,7 @@ export {
   errorRedirect,
 } from './server';
 export type { JwtSigningAlgorithm, JwtTokenIssuerOptions, OpaqueTokenIssuerOptions } from './token-issuer';
-export {
-  introspectToken,
-  JwtTokenIssuer,
-  OpaqueTokenIssuer,
-} from './token-issuer';
+export { introspectToken, JwtTokenIssuer, OpaqueTokenIssuer } from './token-issuer';
 export { generateOAuthToken, hashOAuthToken, PgOAuthTokenStore } from './token-store';
 export type {
   AccessClaims,
