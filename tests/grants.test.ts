@@ -17,6 +17,9 @@ afterAll(async () => {
 /** Issues an authorization code straight through the store (as `authorize` would). */
 const issueCode = (fixture: OAuthFixture, input: IssueCodeInput) => fixture.codes.issue(input);
 
+/** A well-formed refresh token that was never issued (for negative tests). */
+const unknownRefreshToken = (): string => `fw_rt_${crypto.randomUUID().replaceAll('-', '')}`;
+
 /** Error code + status of a failed token request. */
 const failure = async (request: TokenRequest): Promise<{ code: string; status: number }> => {
   try {
@@ -329,7 +332,7 @@ describe('refresh_token grant (RFC 6749 §6)', () => {
         grantType: 'refresh_token',
         clientId: seed.clientId,
         clientSecret: seed.secret,
-        refreshToken: 'fw_rt_deadbeef',
+        refreshToken: unknownRefreshToken(),
       }),
     ).toEqual({ code: 'invalid_grant', status: 400 });
   });
